@@ -9,13 +9,13 @@ import { useState } from "react";
 
 export default function UseStateApp() {
   let app = [
-    { render: <CounterApp />, name: "CounterApp" },
-    { render: <TextFieldApp />, name: "TextFieldApp" },
-    { render: <CheckboxApp />, name: "CheckboxApp" },
-    { render: <TwoUseStateApp />, name: "TwoUseStateApp" },
-    { render: <ObjectApp />, name: "ObjectApp" },
-    { render: <NestedObjectApp />, name: "NestedObjectApp" },
-    { render: <ListArrayApp />, name: "ListArrayApp" },
+    { id: 0, render: <CounterApp />, name: "CounterApp" },
+    { id: 1, render: <TextFieldApp />, name: "TextFieldApp" },
+    { id: 2, render: <CheckboxApp />, name: "CheckboxApp" },
+    { id: 3, render: <TwoUseStateApp />, name: "TwoUseStateApp" },
+    { id: 4, render: <ObjectApp />, name: "ObjectApp" },
+    { id: 5, render: <NestedObjectApp />, name: "NestedObjectApp" },
+    { id: 6, render: <ListArrayApp />, name: "ListArrayApp" },
   ];
   const [isShow, setIsShow] = useState(<CounterApp />);
   return (
@@ -24,6 +24,7 @@ export default function UseStateApp() {
         <legend>
           {app.map((a) => (
             <button
+              key={a.id}
               onClick={() => {
                 setIsShow(a.render);
               }}

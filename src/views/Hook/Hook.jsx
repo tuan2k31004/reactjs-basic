@@ -3,7 +3,7 @@ import UseStateApp from "../useState/UseStateApp";
 
 export default function Hook() {
   const [display, setDisplay] = useState(true);
-  const [isHook, setIsHook] = useState('');
+  const [isHook, setIsHook] = useState({});
   let hook = [
     { id: 0, name: "useCallback", render: "" },
     { id: 1, name: "useContext", render: "" },
@@ -30,7 +30,7 @@ export default function Hook() {
             <p
               key={h.id}
               onClick={() => {
-                setIsHook(h.render);
+                setIsHook(h);
                 setDisplay(false);
               }}
               style={{ cursor: "pointer" }}
@@ -39,7 +39,12 @@ export default function Hook() {
             </p>
           );
         })}
-      {!display && isHook}
+      {!display && (
+        <>
+          <h3>{isHook.name}</h3>
+          {isHook.render}
+        </>
+      )}
     </div>
   );
 }
