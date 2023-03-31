@@ -1,8 +1,8 @@
-import UseStateApp from "./useState/UseStateApp";
+import Hook from "./Hook/Hook";
 function App() {
   return (
    <div>
-     <UseStateApp/>
+    <Hook/>
    </div>
   );
 }
