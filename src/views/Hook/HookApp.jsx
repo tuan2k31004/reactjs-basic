@@ -3,6 +3,9 @@ import { UseEffectApp } from "../useEffect/UseEffectApp";
 import { UseStateApp } from "../useState/UseStateApp";
 import { UseRefApp } from "../useRef/UseRefApp";
 import { UseMemoApp } from "../useMemo/UseMemoApp";
+import { UseReducerApp } from "../useReducer/UseReducerApp";
+import { UseContexApp } from "../useContext/UseConteApp";
+
 export default function HookApp({ hook }) {
   let app = hook;
   const [isShow, setIsShow] = useState(app[0].render);
@@ -28,7 +31,7 @@ export default function HookApp({ hook }) {
 }
 export let hook = [
   { id: 0, name: "useCallback", render: "" },
-  { id: 1, name: "useContext", render: "" },
+  { id: 1, name: "useContext", render: UseContexApp },
   { id: 2, name: "useDebugValue", render: "" },
   { id: 3, name: "useDeferredValue", render: "" },
   { id: 4, name: "useEffect", render: UseEffectApp },
@@ -37,7 +40,7 @@ export let hook = [
   { id: 7, name: "useInsertionEffect", render: "" },
   { id: 8, name: "useLayoutEffect", render: "" },
   { id: 9, name: "useMemo", render: UseMemoApp },
-  { id: 10, name: "useReducer", render: "" },
+  { id: 10, name: "useReducer", render: UseReducerApp },
   { id: 11, name: "useRef", render: UseRefApp },
   { id: 12, name: "useState", render: UseStateApp },
   { id: 13, name: "useSyncExternalStore", render: "" },

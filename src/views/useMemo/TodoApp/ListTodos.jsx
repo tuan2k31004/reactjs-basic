@@ -1,6 +1,7 @@
 import { memo, useMemo } from "react";
 
-function ListTodos({ tab }) {
+function ListTodos({ tab, refs }) {
+  console.log("on");
   const todos = useMemo(() => {
     const createTodos = [];
     for (let i = 0; i < 50; i++) {
@@ -13,7 +14,6 @@ function ListTodos({ tab }) {
     return createTodos;
   }, []);
   const filterTodos = useMemo(() => {
-    console.log("on");
     return todos.filter((todo) => {
       if (tab === "all") {
         return true;
@@ -25,9 +25,13 @@ function ListTodos({ tab }) {
     });
   }, [tab]);
   return (
-    <ul>
-      {filterTodos.map((value) => {
-        return <li key={value.id}>{value.text}</li>;
+    <ul ref={refs}>
+      {filterTodos.map((todo) => {
+        return (
+          <li key={todo.id}>
+            {todo.completed ? <s>{todo.text}</s> : todo.text}
+          </li>
+        );
       })}
     </ul>
   );
